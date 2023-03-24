@@ -18,11 +18,10 @@ pnpm install @pengleip/xmzx-utils
 ## 使用方法如下
 
 ```js
-import {typeObject,regularObject} from '@pengleip/xmzx-utils'
-//typObject 用来判断基本数据类型的 数据结构如下
-typeObject: [Object: null prototype] {
-        toString: [Function: toString],
-        is: [Function: is],
+import {isObject,isType,....} from '@pengleip/xmzx-utils'
+// 用来判断基本数据类型的 数据结构如下
+{
+        isType: [Function: is],
         isDef: [Function: isDef],
         isUnDef: [Function: isUnDef],
         isObject: [Function: isObject],
@@ -39,10 +38,10 @@ typeObject: [Object: null prototype] {
         isRegExp: [Function: isRegExp],
         isArray: [Function: isArray],
         isWindow: [Function: isWindow]
-      },
+      }
 
-//regularObject 用来判断一些基本的正则表达式 数据结构如下
-regularObject: [Object: null prototype] {
+//用来判断一些基本的正则表达式 数据结构如下
+{
         isSecondIDCard: [Function: isSecondIDCard],
         isIDCard: [Function: isIDCard],
         isDecimal: [Function: isDecimal],
@@ -55,6 +54,8 @@ regularObject: [Object: null prototype] {
         isEmail: [Function: isEmail],
         isMoreTwoDecimal: [Function: isMoreTwoDecimal]
       }
+//深度copy的数组或者对象的 方法如下  
+deepClone()    
 ```
 
 ## 更新日志

@@ -1,5 +1,5 @@
 
-const utils = {typeObject} =  require( '../dist/index.cjs.js')
+const {isType} =  require( '../dist/index.cjs.js')
 test('utils', () => {
-    expect(utils.default.typeObject.is({})).toBe("[object Object]")
+    expect(isType({})).toBe("[object Object]")
 })
