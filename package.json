@@ -12,7 +12,9 @@
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "build": "rollup -c --bundleConfigAsCjs",
     "commit": "git-cz",
-    "release": "./scripts/release.sh"
+    "release": "./scripts/release.sh",
+    "release:patch": "./scripts/release.sh -r patch",
+    "commit:npm":"npm publish"
   },
   "repository": {
     "type": "git",
