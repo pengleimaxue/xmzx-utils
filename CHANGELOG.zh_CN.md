@@ -1,5 +1,12 @@
 # @pengleip/xmzx-utils 
 ## 更新历史
+### [1.1.1](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.0...V1.1.1) (2023-03-24)
+
+
+### ✨ Features | 新功能
+
+* 新增深拷贝对象和数组功能 ([956f207](https://github.com/pengleimaxue/xmzx-utils/commit/956f20708901da1f0fdf14a9d1e47cd696d3cc73))
+
 ## 1.1.0 (2023-03-24)
 
 

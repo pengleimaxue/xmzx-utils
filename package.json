@@ -1,6 +1,6 @@
 {
   "name": "@pengleip/xmzx-utils",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -14,7 +14,7 @@
     "commit": "git-cz",
     "release": "./scripts/release.sh",
     "release:patch": "./scripts/release.sh -r patch",
-    "commit:npm":"npm publish"
+    "commit:npm": "npm publish"
   },
   "repository": {
     "type": "git",
