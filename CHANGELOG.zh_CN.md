@@ -1,5 +1,12 @@
 # @pengleip/xmzx-utils 
 ## 更新历史
+### [1.1.2](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.1...V1.1.2) (2023-03-24)
+
+
+### ✏️ Documentation | 文档
+
+* 更改导出和使用方法 ([902958e](https://github.com/pengleimaxue/xmzx-utils/commit/902958ea7954cddc93026ca04a9d624f4c52fac7))
+
 ### [1.1.1](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.0...V1.1.1) (2023-03-24)
 
 
