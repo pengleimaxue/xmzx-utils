@@ -1,0 +1,88 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for index.cjs.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="index.html">All files</a> index.cjs.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">46.05% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>35/76</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">34.42% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>21/61</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">25.64% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>10/39</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">100x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";const t=Object.prototype.toString,e=(e,o)=&gt;o?<span class="branch-0 cbranch-no" title="branch not covered" >t.call(e)===`[object ${o}]`:</span>t.call(e),o=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >void 0!==t,</span>s=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >!o(t),</span>r=e=&gt;null!==e&amp;&amp;"[object Object]"===t.call(e),n=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >null===t,</span>i=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >e(t,"String"),</span>p=t=&gt;t&amp;&amp;Array.isArray(t);const l=(t,e=new WeakMap)=&gt;{if(!r(t)&amp;&amp;!p(t))return t;if(e.has(t))return e.get(t);const o=new(0,t.constructor);e.set(t,o);for(const s in t)Object.prototype.hasOwnProperty.call(t,s)&amp;&amp;(o[s]=l(t[s],e));return o};exports.debounce=function(t,e,o){let s,r;return function(...n){const i=this;<span class="missing-if-branch" title="if path not taken" >I</span>if(s&amp;&amp;clearTimeout(s),o){const o=<span class="cstat-no" title="statement not covered" >!s;<span class="cstat-no" title="statement not covered" ></span>s=setTimeout((<span class="fstat-no" title="function not covered" >fu</span>nction(){<span class="cstat-no" title="statement not covered" >s=null}</span>),e),o&amp;&amp;(r=t.apply(i,n))}</span>else s=setTimeout((()=&gt;{t.apply(i,n)}),e);return r}},exports.deepClone=l,exports.isArray=p,exports.isBoolean=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >e(t,"Boolean"),</span>exports.isChinaName=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^(?:[\u4e00-\u9fa5·]{2,16})$/.test(t),</span>exports.isDate=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >e(t,"Date"),</span>exports.isDecimal=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^\d+\.\d+$/.test(t),</span>exports.isDef=o,exports.isEmail=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(t),</span>exports.isEmpty=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >p(t)||i(t)?0===t.length:t instanceof Map||t instanceof Set?0===t.size:r(t)?0===Object.keys(t).length:null==t||""===t||""===t.trim()||"null"===t.toLocaleLowerCase().trim(),</span>exports.isEnName=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$)/.test(t),</span>exports.isFunction=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >"function"==typeof t,</span>exports.isIDCard=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/(^\d{8}(0\d|10|11|12)([0-2]\d|30|31)\d{3}$)|(^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}(\d|X|x)$)/.test(t),</span>exports.isLetter=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^[a-zA-Z]+$/.test(t),</span>exports.isMoreTwoDecimal=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^[0-9]+(.[0-9]{1,2})?$/.test(t),</span>exports.isNull=n,exports.isNullAndUnDef=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >s(t)&amp;&amp;n(t),</span>exports.isNullOrUnDef=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >s(t)||n(t),</span>exports.isNumAndLetter=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^[A-Za-z0-9]+$/.test(t),</span>exports.isNumber=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^\d{1,}$/.test(t),</span>exports.isObject=r,exports.isOnlyNumber=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >e(t,"Number"),</span>exports.isPhone=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(t),</span>exports.isPromise=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >e(t,"Promise"),</span>exports.isRegExp=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >e(t,"RegExp"),</span>exports.isSecondIDCard=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >/^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}(\d|X|x)$/.test(t),</span>exports.isString=i,exports.isType=e,exports.isUnDef=s,exports.isWindow=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" >"undefined"!=typeof window&amp;&amp;e(t,"Window"),</span>exports.removePorperty=<span class="fstat-no" title="function not covered" >t=</span>&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >e=</span>&gt;{var o=<span class="cstat-no" title="statement not covered" >t;<span class="cstat-no" title="statement not covered" ></span>return e[o],<span class="fstat-no" title="function not covered" >fu</span>nction(t,e){var o=<span class="cstat-no" title="statement not covered" >{};<span class="cstat-no" title="statement not covered" ></span>for(var s in t)<span class="cstat-no" title="statement not covered" >Object.prototype.hasOwnProperty.call(t,s)&amp;&amp;e.indexOf(s)&lt;0&amp;&amp;(o[s]=t[s]);<span class="cstat-no" title="statement not covered" >i</span></span>f(null!=t&amp;&amp;"function"==typeof Object.getOwnPropertySymbols){var r=<span class="cstat-no" title="statement not covered" >0;<span class="cstat-no" title="statement not covered" ></span>for(s=Object.getOwnPropertySymbols(t);r&lt;s.length;r++)<span class="cstat-no" title="statement not covered" >e.indexOf(s[r])&lt;0&amp;&amp;Object.prototype.propertyIsEnumerable.call(t,s[r])&amp;&amp;(o[s[r]]=t[s[r]])}<span class="cstat-no" title="statement not covered" ></span></span>r</span>eturn o}</span>(e,["symbol"==typeof o?o:o+""])}</span>,</span>exports.throttle=function(t,e,o){let s,r,n;o?<span class="branch-0 cbranch-no" title="branch not covered" >n=0:</span>s=null;return function(...i){const p=this;<span class="missing-if-branch" title="if path not taken" >I</span>if(o){const o=<span class="cstat-no" title="statement not covered" >Date.now();<span class="cstat-no" title="statement not covered" ></span>o-n&gt;e&amp;&amp;(r=t.apply(p,i),n=o)}</span>else s||(s=setTimeout((()=&gt;{s=null,t.apply(p,i)}),e));return r}},exports.toString=t;
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2023-03-27T03:50:53.266Z
+            </div>
+        <script src="prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
+    </body>
+</html>
+    

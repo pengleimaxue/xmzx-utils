@@ -1,0 +1,8 @@
+{
+    // Comments are supported, like tsconfig.json
+    "entryPoints": ["src/utils/functionUtils.ts","src/utils/judgmentType.ts","src/utils/regularUtils.ts"],
+    "out": "docs",
+    "includeVersion": true,
+    "name": "厦门智协助前端工具库(@pengleip/xmzx-utils)",
+    "hideGenerator": true 
+}

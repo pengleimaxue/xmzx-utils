@@ -3,3 +3,4 @@
 /dist
 commitlint.config.js
 rollup.config.js
+/docs

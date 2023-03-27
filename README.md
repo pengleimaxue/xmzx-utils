@@ -55,9 +55,15 @@ import {isObject,isType,....} from '@pengleip/xmzx-utils'
         isMoreTwoDecimal: [Function: isMoreTwoDecimal]
       }
 //深度copy的数组或者对象的 方法如下  
-deepClone()    
+deepClone() 
 ```
+
+
 
 ## 更新日志
 
-[CHANGELOG](./CHANGELOG.zh_CN.md)
+[CHANGELOG](https://github.com/pengleimaxue/xmzx-utils/blob/master/CHANGELOG.zh_CN.md)
+
+## 使用日志
+
+[使用说明](https://xmzx-utils.github.io/)
