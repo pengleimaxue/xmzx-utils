@@ -2,6 +2,18 @@
 ## 更新历史
 ### [1.1.3](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.2...V1.1.3) (2023-03-27)
 
+
+### ✏️ Documentation | 文档
+
+* 文档变更 ([661b97d](https://github.com/pengleimaxue/xmzx-utils/commit/661b97d3eee58e80590d226847ddf1650f48614d))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 配置文件变更 ([96c5ace](https://github.com/pengleimaxue/xmzx-utils/commit/96c5ace02ed6d46ef6f1b30f6372374384b21189))
+
+### [1.1.3](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.2...V1.1.3) (2023-03-27)
+
 ## [1.2.0](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.2...V1.2.0) (2023-03-27)
 
 ### [1.1.2](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.1...V1.1.2) (2023-03-24)
