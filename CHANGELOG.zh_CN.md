@@ -1,5 +1,17 @@
 # @pengleip/xmzx-utils 
 ## 更新历史
+### [1.1.4](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.3...V1.1.4) (2023-03-29)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* **release:** 1.1.3 ([e3f9568](https://github.com/pengleimaxue/xmzx-utils/commit/e3f9568936e62dfa819c03588d22820e6e5bc07d))
+
+
+### ✨ Features | 新功能
+
+* 新增重试函数 ([12f77f4](https://github.com/pengleimaxue/xmzx-utils/commit/12f77f40d72f651857c35e0922a1ba23c63f3734))
+
 ### [1.1.3](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.3...V1.1.3) (2023-03-27)
 
 ### [1.1.3](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.2...V1.1.3) (2023-03-27)
