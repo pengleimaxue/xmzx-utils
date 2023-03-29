@@ -1,5 +1,4 @@
-const { deepClone, debounce, throttle } = require('../dist/index.cjs.js')
-
+const { deepClone, debounce, throttle, retryPromise } = require('@pengleip/xmzx-utils')
 describe("my function test", () => {
     test('deepClone', () => {
         const obj = { name: 'test', point: { x: 110, y: 120 } }
@@ -27,13 +26,13 @@ describe('debounce', () => {
     });
     test('execute just once', () => {
         for (let i = 0; i < 100; i++) {
-            debouncedFunc(i+1);
+            debouncedFunc(i + 1);
         }
-         // Fast-forward time
+        // Fast-forward time
         jest.runAllTimers();
         const calls = mockFn.mock.calls;
         expect(mockFn).toBeCalledTimes(1);
-         // 断言以最后一次调用为准
+        // 断言以最后一次调用为准
         expect(calls[0][0]).toBe(100);
     });
 });
@@ -48,15 +47,34 @@ describe('throttle', () => {
     });
     test('execute just once', () => {
         for (let i = 0; i < 100; i++) {
-            debouncedFunc(i+1);
+            debouncedFunc(i + 1);
         }
         // Fast-forward time
         jest.runAllTimers();
         const calls = mockFn.mock.calls;
-        
+
         expect(mockFn).toBeCalledTimes(1);
-         // 断言以第一次一次调用为准
+        // 断言以第一次一次调用为准
         expect(calls[0][0]).toBe(1);
     });
 });
 
+describe('retryPromise', () => {
+    let i = 0;
+    function solution() {
+        return new Promise((resolve, reject) => {
+            if (3 < i) {
+                resolve(i)
+            } else {
+                i++
+                console.log("i==", i)
+                reject("error")
+            }
+        })
+    }
+    test("promise", () => {
+        return retryPromise(solution, 4).then(data => {
+            expect(data).toBe(4)
+        })
+    })
+})

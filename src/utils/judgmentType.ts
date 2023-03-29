@@ -1,5 +1,6 @@
 /**
  *@remarks 判断数据常见基本的数据类型
+ *@ignore
  */
 
 export const toString = Object.prototype.toString;
@@ -12,12 +13,12 @@ export const toString = Object.prototype.toString;
  * @returns 如果type有值，返回Boolean对象，没值，返回  Object.prototype.toString返回的类型
  */
 
-export const isType = (val:any, type?:string):boolean | string =>{
-    if(type) {
-      return  toString.call(val) === `[object ${type}]`;
-    }
-    return toString.call(val) 
-} 
+export const isType = (val: any, type?: string): boolean | string => {
+  if (type) {
+    return toString.call(val) === `[object ${type}]`;
+  }
+  return toString.call(val)
+}
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -25,7 +26,7 @@ export const isType = (val:any, type?:string):boolean | string =>{
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isDef = (val:any) => typeof val !== 'undefined';
+export const isDef = (val: any) => typeof val !== 'undefined';
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -33,7 +34,7 @@ export const isDef = (val:any) => typeof val !== 'undefined';
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isUnDef = (val:any) => !isDef(val);
+export const isUnDef = (val: any) => !isDef(val);
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -41,7 +42,7 @@ export const isUnDef = (val:any) => !isDef(val);
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isObject = (val:any) => val !== null && toString.call(val) === `[object Object]`;
+export const isObject = (val: any) => val !== null && toString.call(val) === `[object Object]`;
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -49,17 +50,17 @@ export const isObject = (val:any) => val !== null && toString.call(val) === `[ob
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isEmpty = (val:any) => {
-    if (isArray(val) || isString(val)) return val.length === 0;
-    if (val instanceof Map || val instanceof Set) return val.size === 0;
-    if (isObject(val)) return Object.keys(val).length === 0;
-      return (
-      val == null ||
-      false ||
-      val === "" ||
-      val.trim() === "" ||
-      val.toLocaleLowerCase().trim() === "null"
-    );
+export const isEmpty = (val: any) => {
+  if (isArray(val) || isString(val)) return val.length === 0;
+  if (val instanceof Map || val instanceof Set) return val.size === 0;
+  if (isObject(val)) return Object.keys(val).length === 0;
+  return (
+    val == null ||
+    false ||
+    val === "" ||
+    val.trim() === "" ||
+    val.toLocaleLowerCase().trim() === "null"
+  );
 }
 
 /**
@@ -68,7 +69,7 @@ export const isEmpty = (val:any) => {
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isDate = (val:any) => isType(val, "Date");
+export const isDate = (val: any) => isType(val, "Date");
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -76,7 +77,7 @@ export const isDate = (val:any) => isType(val, "Date");
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isNull = (val:any) => val === null;
+export const isNull = (val: any) => val === null;
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -85,7 +86,7 @@ export const isNull = (val:any) => val === null;
  * @returns 返回Boolean对象
  */
 
-export const isNullAndUnDef = (val:any) => isUnDef(val) && isNull(val);
+export const isNullAndUnDef = (val: any) => isUnDef(val) && isNull(val);
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -93,7 +94,7 @@ export const isNullAndUnDef = (val:any) => isUnDef(val) && isNull(val);
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isNullOrUnDef = (val:any) => isUnDef(val) || isNull(val);
+export const isNullOrUnDef = (val: any) => isUnDef(val) || isNull(val);
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -101,7 +102,7 @@ export const isNullOrUnDef = (val:any) => isUnDef(val) || isNull(val);
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isOnlyNumber = (val:any) => isType(val, "Number");
+export const isOnlyNumber = (val: any) => isType(val, "Number");
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -109,10 +110,10 @@ export const isOnlyNumber = (val:any) => isType(val, "Number");
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isPromise = (val:any) => {
-    return (
-        isType(val, "Promise")
-    )
+export const isPromise = (val: any) => {
+  return (
+    isType(val, "Promise")
+  )
 }
 
 
@@ -122,7 +123,7 @@ export const isPromise = (val:any) => {
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isString = (val:any) => isType(val, "String");
+export const isString = (val: any) => isType(val, "String");
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -130,7 +131,7 @@ export const isString = (val:any) => isType(val, "String");
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isFunction = (val:any) => typeof val === "function";
+export const isFunction = (val: any) => typeof val === "function";
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -138,7 +139,7 @@ export const isFunction = (val:any) => typeof val === "function";
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isBoolean = (val:any) => isType(val, "Boolean");
+export const isBoolean = (val: any) => isType(val, "Boolean");
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -146,7 +147,7 @@ export const isBoolean = (val:any) => isType(val, "Boolean");
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isRegExp = (val:any) => isType(val, "RegExp");
+export const isRegExp = (val: any) => isType(val, "RegExp");
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -154,7 +155,7 @@ export const isRegExp = (val:any) => isType(val, "RegExp");
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isArray = (val:any) => val && Array.isArray(val);
+export const isArray = (val: any) => val && Array.isArray(val);
 
 /**
  * @category  判断数据常见基本的数据类型
@@ -162,4 +163,4 @@ export const isArray = (val:any) => val && Array.isArray(val);
  * @param val 需要判断的数据
  * @returns 返回Boolean对象
  */
-export const isWindow = (val:any) => typeof window !== "undefined" && isType(val, "Window");
+export const isWindow = (val: any) => typeof window !== "undefined" && isType(val, "Window");

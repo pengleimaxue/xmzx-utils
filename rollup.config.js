@@ -24,7 +24,7 @@ export default[
         plugins:[
             ts(),
             cjs(),
-            terser({compress:{drop_console:true}})
+           terser({compress:{drop_console:true}})
         ]
     },
     {

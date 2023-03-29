@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1679889053278" clover="3.2.0">
-  <project timestamp="1679889053278" name="All files">
-    <metrics statements="1" coveredstatements="1" conditionals="61" coveredconditionals="21" methods="39" coveredmethods="10" elements="101" coveredelements="32" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1"/>
+<coverage generated="1680058773097" clover="3.2.0">
+  <project timestamp="1680058773098" name="All files">
+    <metrics statements="1" coveredstatements="1" conditionals="142" coveredconditionals="60" methods="58" coveredmethods="27" elements="201" coveredelements="88" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1"/>
     <file name="index.cjs.js" path="/Users/penglei/Documents/13.前端/tracker/dist/index.cjs.js">
-      <metrics statements="1" coveredstatements="1" conditionals="61" coveredconditionals="21" methods="39" coveredmethods="10"/>
-      <line num="1" count="100" type="cond" truecount="21" falsecount="40"/>
+      <metrics statements="1" coveredstatements="1" conditionals="142" coveredconditionals="60" methods="58" coveredmethods="27"/>
+      <line num="1" count="100" type="cond" truecount="60" falsecount="82"/>
     </file>
   </project>
 </coverage>

@@ -1,8 +1,17 @@
 {
     // Comments are supported, like tsconfig.json
-    "entryPoints": ["src/utils/functionUtils.ts","src/utils/judgmentType.ts","src/utils/regularUtils.ts"],
+    "entryPoints": ["src/core/index.ts"],
     "out": "docs",
     "includeVersion": true,
-    "name": "厦门智协助前端工具库(@pengleip/xmzx-utils)",
+    "name": "厦门智协前端工具库",
+    "navigationLinks": {
+        "项目地址": "https://github.com/pengleimaxue/xmzx-utils"
+    },
+    "sidebarLinks": {
+        "联系我": "https://github.com/pengleimaxue/xmzx-utils/issues"
+    },
+    "visibilityFilters": {
+       
+    },
     "hideGenerator": true 
 }

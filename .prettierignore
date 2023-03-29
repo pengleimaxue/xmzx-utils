@@ -1,0 +1,6 @@
+/test
+/node_modules
+/dist
+commitlint.config.js
+rollup.config.js
+/docs

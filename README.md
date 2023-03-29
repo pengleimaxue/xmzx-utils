@@ -66,4 +66,4 @@ deepClone()
 
 ## 使用日志
 
-[使用说明](https://xmzx-utils.github.io/)
+[使用说明](https://xmzx-utils.github.io/modules.html)

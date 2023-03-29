@@ -1,16 +1,18 @@
 // eslint-disable-next-line no-undef
 module.exports = {
+    "parser": "@typescript-eslint/parser",
     "env": {
+        "node": true,
         "browser": true,
-        "es2021": true
+        "es6": true
     },
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [
     ],
-    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
@@ -19,6 +21,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        "@typescript-eslint/no-this-alias": ["off"]
+       "@typescript-eslint/no-this-alias": ["off"]
     }
 }
