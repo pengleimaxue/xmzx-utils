@@ -2,6 +2,24 @@
 
 ## 更新历史
 
+### [1.2.1](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.0...V1.2.1) (2023-04-09)
+
+### ✨ Features | 新功能
+
+-   新增日期格式化函数 formate ([1ad7617](https://github.com/pengleimaxue/xmzx-utils/commit/1ad761715919e259c74b432c3c623dc1b91133d5))
+
+### [1.3.1](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.0...V1.3.1) (2023-04-09)
+
+### ✨ Features | 新功能
+
+-   新增日期格式化函数 formate ([1ad7617](https://github.com/pengleimaxue/xmzx-utils/commit/1ad761715919e259c74b432c3c623dc1b91133d5))
+
+## [1.3.0](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.0...V1.3.0) (2023-04-09)
+
+### ✨ Features | 新功能
+
+-   新增日期格式化函数 formate ([1ad7617](https://github.com/pengleimaxue/xmzx-utils/commit/1ad761715919e259c74b432c3c623dc1b91133d5))
+
 ## [1.2.0](https://github.com/pengleimaxue/xmzx-utils/compare/V1.1.4...V1.2.0) (2023-04-05)
 
 ### ✨ Features | 新功能
