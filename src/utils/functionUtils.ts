@@ -2,7 +2,7 @@
 /**
  *
  */
-import { isObject, isArray, isFunction } from './judgmentType';
+import { isObject, isArray, isDate, isPromise } from './judgmentType';
 import type { SomeConstructor, functionType } from '../types/common';
 /**
  * @category  一些函数工具类
@@ -167,7 +167,7 @@ export const retryPromise = function <T extends PromiseConstructor>(
     delay = 0,
 ): Promise<T> {
     return new Promise((resolve, reject) => {
-        if (!isFunction(func)) {
+        if (!isPromise(func)) {
             reject(func + ' is not Promise');
         }
         //重连函数
@@ -227,7 +227,7 @@ function _runTask(task: functionType, callBack: (value: unknown) => void) {
 
 /**
  * @category  一些函数工具类
- * @remark 异步执行任务，同时不会让也产生卡顿
+ * @remark 异步执行任务，同时不会让页面产生卡顿
  * @param task 需要运行的耗时任务函数
  * @returns promise对象
  */
@@ -236,3 +236,122 @@ export const runTask = function (task: functionType) {
         _runTask(task, reslove);
     });
 };
+
+interface formateInfo {
+    yyyy: string;
+    MM: string;
+    dd: string;
+    HH: string;
+    mm: string;
+    ss: string;
+    ms: string;
+    [index: string]: string;
+}
+
+/**
+ * @category  一些函数工具类
+ * @remark 格式化日期
+ * @param date 传入的日期
+ * @param formatter 需要格式化的类型或者函数
+ * @param isPad 是否格式化之后自动补零 默认false
+ * 
+ * 使用demo如下：
+ * ```js
+ * 
+// 2023-4-9
+console.log(formate(new Date(),'date'))
+//2023-4-9 19:4:34
+console.log(formate(new Date(),'datetime'))
+//2023-04-09
+console.log(formate(new Date(),'date',true))
+//2023-04-09 19:04:34
+console.log(formate(new Date(),'datetime',true))
+//2023年04月09日 19:04:50:281
+console.log(formate(new Date(),'yyyy年MM月dd日 HH:mm:ss:ms',true))
+
+const test = formate(new Date('2020/12/1'),(dateInfo)=>{
+    const {yyyy:year} = dateInfo;
+    console.log({year})
+    const nowYear = new Date().getFullYear();
+    if(year<nowYear) {
+        return `${nowYear - year} 年前`
+    }else if(year>nowYear) {
+        return `${year - nowYear} 年后`
+    }else {
+        return '今年'
+    }
+})
+//3 年前
+console.log(test);
+ * ```
+ */
+export function formate(
+    date: Date,
+    formatter: functionType | string,
+    isPad?: boolean,
+) {
+    if (!isDate(date)) {
+        throw new TypeError(date + ' must be a Date');
+    }
+    const newformatter = _formatNormalize(formatter);
+    const dateInfo = {
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+        date: date.getDate(),
+        hour: date.getHours(),
+        minute: date.getMinutes(),
+        second: date.getSeconds(),
+        miniSecond: date.getMilliseconds(),
+    };
+    const newDateInfo: formateInfo = {
+        yyyy: dateInfo.year.toString(),
+        MM: dateInfo.month.toString(),
+        dd: dateInfo.date.toString(),
+        HH: dateInfo.hour.toString(),
+        mm: dateInfo.minute.toString(),
+        ss: dateInfo.second.toString(),
+        ms: dateInfo.miniSecond.toString(),
+    };
+    function _pad(prop: string, len: number) {
+        newDateInfo[prop] = newDateInfo[prop].padStart(len, '0');
+    }
+    if (isPad) {
+        _pad('yyyy', 4);
+        _pad('MM', 2);
+        _pad('dd', 2);
+        _pad('HH', 2);
+        _pad('mm', 2);
+        _pad('ss', 2);
+        _pad('ms', 2);
+    }
+    return newformatter(newDateInfo);
+}
+
+/**
+ * @ignore
+ * */
+function _formatNormalize(formatter: functionType | string) {
+    if (typeof formatter === 'function') {
+        return formatter;
+    }
+    if (typeof formatter !== 'string') {
+        throw new TypeError('formatter must be a string');
+    }
+    if (formatter === 'date') {
+        formatter = 'yyyy-MM-dd';
+    } else if (formatter === 'datetime') {
+        formatter = 'yyyy-MM-dd HH:mm:ss';
+    }
+    const formatterFunc = (dataInfo: formateInfo) => {
+        const { yyyy, MM, dd, HH, mm, ss, ms } = dataInfo;
+        return (formatter as string)
+            .replace(/yyyy/gi, yyyy)
+            .replace(/MM/gi, MM)
+            .replace(/dd/gi, dd)
+            .replace(/HH/gi, HH)
+            .replace(/mm/gi, mm)
+            .replace(/ss/gi, ss)
+            .replace(/ms/gi, ms);
+    };
+    return formatterFunc;
+}
