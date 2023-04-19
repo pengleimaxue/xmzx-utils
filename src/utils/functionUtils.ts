@@ -2,8 +2,8 @@
 /**
  *
  */
-import { isObject, isArray, isDate, isPromise } from './judgmentType';
 import type { SomeConstructor, functionType } from '../types/common';
+import { isArray, isDate, isObject, isPromise } from './judgmentType';
 /**
  * @category  一些函数工具类
  * @remarks 深copy 只对Oject/Array，其他数据直接返回进行处理
@@ -215,7 +215,7 @@ function _runTask(task: functionType, callBack: (value: unknown) => void) {
     //requestAnimationFrame 兼容性较好
     // requestIdleCallback 兼容没有那么好
     requestAnimationFrame(() => {
-        //一秒60帧 如果没有渲染的时候就进将异步操作执行
+        //一分钟60帧 如果没有渲染的时候就进将异步操作执行
         if (Date.now() - start < 16.6) {
             task();
             callBack('');

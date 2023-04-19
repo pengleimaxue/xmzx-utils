@@ -9,7 +9,7 @@
   "private": false,
   "exports": {
     "require": "./dist/index.cjs.js",
-    "import": "./dis/index.esm.js"
+    "import": "./dist/index.esm.js"
   },
   "scripts": {
     "test": "jest test/*",
