@@ -1,6 +1,6 @@
 {
   "name": "@pengleip/xmzx-utils",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "这个是一个js工具库",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -64,8 +64,5 @@
     "commitizen": {
       "path": "./node_modules/cz-customizable"
     }
-  },
-  "dependencies": {
-    "@pengleip/xmzx-utils": "link:"
   }
 }

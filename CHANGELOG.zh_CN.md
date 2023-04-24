@@ -2,6 +2,8 @@
 
 ## 更新历史
 
+### [1.2.3](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.2...V1.2.3) (2023-04-24)
+
 ### [1.2.2](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.1...V1.2.2) (2023-04-19)
 
 ### 🐛 Bug Fixes | Bug 修复
