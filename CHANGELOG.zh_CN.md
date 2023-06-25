@@ -2,6 +2,12 @@
 
 ## 更新历史
 
+### [1.2.4](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.3...V1.2.4) (2023-06-25)
+
+### ✨ Features | 新功能
+
+-   新增数字分割函数 ([17a8b69](https://github.com/pengleimaxue/xmzx-utils/commit/17a8b6981242e94a3939d504d5e1401e068b6409))
+
 ### [1.2.3](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.2...V1.2.3) (2023-04-24)
 
 ### [1.2.2](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.1...V1.2.2) (2023-04-19)
