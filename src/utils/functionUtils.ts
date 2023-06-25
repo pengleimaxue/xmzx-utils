@@ -377,7 +377,7 @@ export const parseQuery = (url: string) => {
 
 /**
  * @category  一些函数工具类
- *  @remarks 数字分割
+ * @remarks 数字分割
  * @param value 需要分割的数字
  * @param diviDingDigit 几位分割(默认三位分割)
  * @param sign 分割符号(可选 默认,分割)
@@ -412,7 +412,7 @@ export function dividingNumbersBySign<T extends string | number>(
     }
     //非数字原封不动返回
     if (!isNumber(value.toString()) && !isDecimal(value.toString())) {
-        return value;
+        return (symbolValue + value) as T;
     }
 
     const numArr = value.toString().split('.');
@@ -445,4 +445,117 @@ export function dividingNumbersBySign<T extends string | number>(
     }
 
     return (symbolValue + result.join(sign || ',') + pointValue) as T;
+}
+/**
+ * @category  一些函数工具类
+ * @remarks 保留小数，不存在精度丢失问题,解决使用toFixed精度丢失或者大数等问题
+ * @param num 需要传入的数字 支持大数，如果是大数的请传递字符串格式，防止数字越界
+ * @param digitNum 需要保留的小数位数，默认保留两位小数
+ * @param isPad 保留的小数位数是否补0 默认不够保留的小数位数直接补0
+ * @param isHalfAdjust 保留小数的时候是否四舍五入，默认为true
+ * @returns 返回数据结果
+ * 使用demo如下：
+ * ``` js
+ * console.log(retainDecimalsByDigit(-12334577));
+console.log(5.215.toFixed(2),1.125.toFixed(2) )// 结果分别为 5.21 1.13  5.215 存在精度丢失
+console.log(retainDecimalsByDigit(5.215,2),retainDecimalsByDigit(1.125,2)); // 结果分别为 5.22 1.13 不存在精度丢失
+console.log(retainDecimalsByDigit(12334577));//12334577.00
+console.log(retainDecimalsByDigit(-12334577.12,5));//-12334577.12000
+console.log(retainDecimalsByDigit(-12334577.12,5,false,false));//-12334577.12
+console.log(retainDecimalsByDigit(-12334577.125,2));//-12334577.13
+console.log(retainDecimalsByDigit(-12334577.124,2,false,false));//-12334577.12
+console.log(retainDecimalsByDigit(-12334577.9999,2));//-12334578.00
+console.log(retainDecimalsByDigit(-12334577.9999,2,false,false));//-12334577.99
+console.log(retainDecimalsByDigit('199.99999999999999999999999999',2));//200.00
+console.log(retainDecimalsByDigit('198.19999999999999999999999999',2));// 198.20
+console.log(411522199010154219.99999999999999999999999999.toFixed(2))//结果 411522199010154240.00 
+console.log(retainDecimalsByDigit('411522199010154219.99999999999999999999999999'))//结果 411522199010154220.00
+console.log(retainDecimalsByDigit('9999999999999999.99999999999999999999999999',4));// 10000000000000000.0000
+ * ```
+ */
+export function retainDecimalsByDigit(
+    num: string | number,
+    digitNum = 2,
+    isPad = true,
+    isHalfAdjust = true,
+): string {
+    //负数校验
+    let symbolValue = '';
+    let currentValue = num;
+    if (currentValue && currentValue.toString().indexOf('-') === 0) {
+        symbolValue = '-';
+        currentValue = currentValue.toString().replace('-', '');
+    }
+    //非数字原封不动返回
+    if (
+        !isNumber(currentValue.toString()) &&
+        !isDecimal(currentValue.toString())
+    ) {
+        return num as string;
+    }
+    // 如果是整数 直接返回
+    if (isNumber(currentValue.toString())) {
+        if (isPad) {
+            currentValue += '.' + ''.padEnd(digitNum, '0');
+        }
+        return symbolValue + currentValue;
+    }
+
+    // 如果是小数，则做后续处理
+    const numArr = currentValue.toString().split('.');
+    // 获取小数部分
+    const pointValue = numArr[1];
+    const lastValue = pointValue.slice(digitNum, digitNum + 1);
+    // 如果是小数且不需要四舍五入或者保留的位数大于等于小数位数或者舍去的最后一位数字小于5
+    if (
+        !isHalfAdjust ||
+        pointValue.length <= digitNum ||
+        Number(lastValue) < 5
+    ) {
+        currentValue =
+            numArr[0] +
+            '.' +
+            (isPad
+                ? pointValue.slice(0, digitNum).padEnd(digitNum, '0')
+                : pointValue.slice(0, digitNum));
+        return symbolValue + currentValue;
+    }
+    const addValue = _addStrings(pointValue.slice(0, digitNum), '1');
+    // 说明小数进位了，需要移到小数点前面几下进位
+    if (addValue.length > pointValue.slice(0, digitNum).length) {
+        currentValue =
+            _addStrings(numArr[0], '1') +
+            '.' +
+            (isPad
+                ? addValue.slice(1).padEnd(digitNum, '0')
+                : addValue.slice(1));
+    } else {
+        currentValue =
+            numArr[0] +
+            '.' +
+            (isPad ? addValue.padEnd(digitNum, '0') : addValue);
+    }
+    return symbolValue + currentValue;
+}
+
+/**
+ * 大数相加
+ * @ignore
+ * */
+function _addStrings(num1: string, num2: string): string {
+    const len = Math.max(num1.length, num2.length);
+    num1 = num1.padStart(len, '0');
+    num2 = num2.padStart(len, '0');
+    const result: number[] = [];
+
+    for (let i = len - 1; i >= 0; i--) {
+        const sum = Number(num1[i]) + Number(num2[i]) + (result[0] || 0);
+        const low = sum % 10;
+        const high = Math.floor(sum / 10);
+        result[0] = low;
+        if (i !== 0 || high !== 0) {
+            result.unshift(high);
+        }
+    }
+    return result.join('');
 }
