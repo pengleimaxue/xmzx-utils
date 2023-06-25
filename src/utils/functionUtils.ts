@@ -3,7 +3,8 @@
  *
  */
 import type { SomeConstructor, functionType } from '../types/common';
-import { isArray, isDate, isObject, isPromise } from './judgmentType';
+import { isArray, isDate, isObject, isPromise, isString } from './judgmentType';
+import { isDecimal, isNumber } from './regularUtils';
 /**
  * @category  一些函数工具类
  * @remarks 深copy 只对Oject/Array，其他数据直接返回进行处理
@@ -354,4 +355,94 @@ function _formatNormalize(formatter: functionType | string) {
             .replace(/ms/gi, ms);
     };
     return formatterFunc;
+}
+
+/**
+ * @category  一些函数工具类
+ * @remark 解析URL参数
+ * @param url 需要解析 httpURL
+ * @returns 返回url？后面构成的键值对象
+ */
+
+export const parseQuery = (url: string) => {
+    const query: { [index: string]: string } = {};
+    if (isString(url)) {
+        url.replace(
+            /([^?&=]+)=([^&]+)/g,
+            (_, k: string, v: string) => (query[k] = v),
+        );
+    }
+    return query;
+};
+
+/**
+ * @category  一些函数工具类
+ *  @remarks 数字分割
+ * @param value 需要分割的数字
+ * @param diviDingDigit 几位分割(默认三位分割)
+ * @param sign 分割符号(可选 默认,分割)
+ * @param isPad 如果少于指定的位数是否补0，否认false
+ * @returns 格式化后的数字字符串
+ *  * 使用demo如下：
+ * ```js
+ *  console.log(dividingNumbersBySign(12334577));//12,334,577
+    console.log(dividingNumbersBySign(12))//12
+    console.log(dividingNumbersBySign(123124))//123,124
+    console.log(dividingNumbersBySign(12334577,4));//1233,4577
+    console.log(dividingNumbersBySign(123345771,4));//1,2334,5771
+    console.log(dividingNumbersBySign(123345777,4,",",true));//0001,2334,5777
+    console.log(dividingNumbersBySign(123345777.123123,4,",",true));//0001,2334,5777.123123
+    console.log(dividingNumbersBySign(12334577,3,"?"));//12?334?577
+    console.log(dividingNumbersBySign(12334577,7,"?",true));//0000001?2334577
+    console.log(dividingNumbersBySign(-12334577,3,"?",true));//-012?334?577
+  ```
+ */
+
+export function dividingNumbersBySign<T extends string | number>(
+    value: T,
+    diviDingDigit?: number,
+    sign?: string,
+    isPad?: boolean,
+): T {
+    //负数校验
+    let symbolValue = '';
+    if (value && value.toString().indexOf('-') === 0) {
+        symbolValue = '-';
+        value = value.toString().replace('-', '') as T;
+    }
+    //非数字原封不动返回
+    if (!isNumber(value.toString()) && !isDecimal(value.toString())) {
+        return value;
+    }
+
+    const numArr = value.toString().split('.');
+    // 获取小数部分
+    let pointValue = '';
+    if (numArr[1]) {
+        pointValue = '.' + numArr[1];
+    }
+
+    // 获取整数部分
+    let newValue = numArr[0];
+    const result = [];
+    const num = diviDingDigit || 3;
+    if (newValue.length <= num) {
+        result.push(isPad ? newValue.padStart(num, '0') : newValue);
+    } else {
+        const times = Math.ceil(newValue.length / num);
+
+        for (let i = 0; i <= times; i++) {
+            const start =
+                newValue.length % num === 0 ? num : newValue.length % num;
+            const currentValue = newValue.slice(0, start);
+            if (currentValue && currentValue.length) {
+                result.push(
+                    isPad ? currentValue.padStart(num, '0') : currentValue,
+                );
+                newValue = newValue.slice(start);
+            }
+        }
+    }
+
+    return (symbolValue + result.join(sign || ',') + pointValue) as T;
 }

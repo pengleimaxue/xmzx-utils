@@ -57,7 +57,7 @@ export const isEmpty = (val: any) => {
     if (isObject(val)) return Object.keys(val).length === 0;
     return (
         val == null ||
-        false ||
+        val == false ||
         val === '' ||
         val.trim() === '' ||
         val.toLocaleLowerCase().trim() === 'null'

@@ -1,8 +1,8 @@
-import path from 'path'
-import ts from 'rollup-plugin-typescript2'
-import dts from 'rollup-plugin-dts'
 import cjs from '@rollup/plugin-commonjs'
-import {terser} from 'rollup-plugin-terser'
+import path from 'path'
+import dts from 'rollup-plugin-dts'
+import { terser } from 'rollup-plugin-terser'
+import ts from 'rollup-plugin-typescript2'
 export default[
     {
         input:"./src/core/index.ts",
@@ -34,6 +34,6 @@ export default[
             file:path.resolve(__dirname,'./dist/index.d.ts'),
             format:"es"
         },
-        plugins: [(dts.default)()]
+        plugins: [(dts.default)({compilerOptions:{"removeComments":true}})]
     } 
 ]
