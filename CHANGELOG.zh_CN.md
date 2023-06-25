@@ -2,6 +2,12 @@
 
 ## 更新历史
 
+### [1.2.5](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.4...V1.2.5) (2023-06-25)
+
+### ✨ Features | 新功能
+
+-   新增保留小数位数功能，支持大数保留位数，精度不存在丢失 ([6dae4d7](https://github.com/pengleimaxue/xmzx-utils/commit/6dae4d7cac4e70ebbf7a7a5e7890df08ad5c07e7))
+
 ### [1.2.4](https://github.com/pengleimaxue/xmzx-utils/compare/V1.2.3...V1.2.4) (2023-06-25)
 
 ### ✨ Features | 新功能
